@@ -10,26 +10,57 @@
         <TableView>
             <TableRoot>
                 <TableSection Title="Thông tin khách hàng">
-                    <ViewCell Height="400">
-                        <ListView>
-                            
-                        </ListView>
+                    <ViewCell Height="800">
+                        <ScrollView Orientation="Vertical">
+                            <ListView x:Name="listImage" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="5*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="{Binding image}" Grid.Row="0" Grid.Column="0"/>
+                                                <Label Text="{Binding title}" Grid.Row="1" Grid.Column="0"/>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollView>
+                    
                     </ViewCell>
                 </TableSection>
 
-                <TableSection Title="Thông tin đơn hàng">
-                    <ViewCell>
+                <TableSection Title="Thông tin đơn hàng" >
+                    <EntryCell/>
+                    <ViewCell Height="900" >
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
+
+                            <Label Text="Họ và tên" Grid.Column="0" Grid.Row="0"/>
+                            <Label Text="Email" Grid.Column="0" Grid.Row="1"/>
+
+                            <Entry  Grid.Column="1" Grid.Row="0"/>
+                            <Entry Grid.Column="1" Grid.Row="1"/>
                         </Grid>
                     </ViewCell>
+                </TableSection>
+
+                <TableSection Title="Setting">
+                    <SwitchCell Text="Dark Theme" />
+                    <SwitchCell Text="Mute" On="true" />
                 </TableSection>
             </TableRoot>
         </TableView>
